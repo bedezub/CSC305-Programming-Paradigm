@@ -1,0 +1,79 @@
+; Expression
+
+  ; Normal Expression
+  (define a 10)
+  a
+  
+  ; Literal Expression
+  (quote a)
+  a
+  
+  ; Set Assignment
+  (define c 20) ; Kena define dulu baru boleh set
+  (set! c 30)
+  c
+  
+  ; Quote statement - Const variable
+  (quote a)
+  a
+  
+  ; if statement
+  (if (< a 15)
+      "Masuk true" ; true statement
+      "Masuk false") ; false statement
+      
+
+  ; cond statement - nest if statement
+  (cond ((< c 10) "Case 1 is true") 
+        ((> c 20) "Case 2 is true")
+        (else "c is greater than 10"))
+  
+  ; case statement - literally switch
+  (case (+ 3 4)
+    ((7) 'true)
+    ((2) 'false)
+    (else 'nothing))
+  
+  ; lamda - function simple
+  (lambda (a) (* a a)) ; function definition
+  (* a a) ; function call
+  
+  ; let - function with parameter
+  (let (
+        (a 10)  ; parameter and value
+        (b 20)
+        )  ; parameter and value
+        (* a b) ; function
+  )
+  
+  ; let* - function dalam function
+  ; complicated way
+  (define x 10)
+  (let ((x 5))
+    (let((y 2))
+    (+ x y)))
+  
+  ; less complicated way
+  (define w 0)
+  (define v 0)
+  (let* ((w 5) ; masukkan value w dalam function
+         (v (+ v 2))) ; currently v=2
+    (+ w v))
+                                                  
+  ; Name lambda - function with a name
+  (define squareVal
+    (lambda (a b)
+      (if (< a b)
+          (* a a)
+          (* b b))))
+  
+  (squareVal 4 5)
+  
+  ; Named let - function with a name ?? 
+  (define factorial
+    (lambda(n)  
+      (let iter ((product 1)
+         (counter 1))
+      (if (> counter n)
+          product
+          (iter (* counter product) (+ counter 1)))))
