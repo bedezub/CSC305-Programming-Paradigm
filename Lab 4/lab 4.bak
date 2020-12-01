@@ -1,0 +1,4 @@
+(
+    define (funcA x y z)
+        (* (+ x y) z)
+)
